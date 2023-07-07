@@ -1,9 +1,12 @@
-function MyAccount() {
+
+import Layout from "../../Components/Layout"
+
+const MyAccount = () => {
   return (
     <>
-      <div className='bg-red-400'>
-        my account
-      </div>
+      <Layout>
+        MyAccount
+      </Layout>
     </>
   )
 }
