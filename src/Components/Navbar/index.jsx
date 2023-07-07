@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import { ShoppingContext } from "../../Context"
-
+import { GrCart } from "react-icons/gr"
 
 const Navbar = () => {
     const context = useContext(ShoppingContext)
@@ -18,28 +18,28 @@ const Navbar = () => {
                     <NavLink to='/'
                             className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
-                        All
+                        Todos
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/electronics'
+                    <NavLink to='/Amigurumis'
                             className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
-                        Electronics
+                        Amigurumis
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/toys'
+                    <NavLink to='/Plantas'
                             className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
-                        Toys
+                        Plantas
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/others'
+                    <NavLink to='/otros'
                             className={({ isActive }) => isActive ? activeStyle : undefined}
                     >
-                        Others
+                        Otros
                     </NavLink>
                 </li>
             </ul>
@@ -62,11 +62,11 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/'>
-                         { context.count }
+                    <NavLink to='/' className="flex">
+                        <div><GrCart className="w-5 h-5"/></div>
+                        <div>{ context.count }</div>
                     </NavLink>
                 </li>
-                
             </ul>
         </nav>
     )

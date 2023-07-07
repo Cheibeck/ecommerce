@@ -1,7 +1,7 @@
 import React from "react"
 import { useContext } from "react"
 import { ShoppingContext } from "../../Context"
-
+import { HiPlus } from "react-icons/hi"
 const Card = (data) => {
     const context = useContext(ShoppingContext)
 
@@ -14,7 +14,7 @@ const Card = (data) => {
                         className="absolute flex top-0 right-0 justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
                         onClick={() => context.setCount(context.count + 1)}    
                     >
-                        +
+                        <HiPlus />
                     </div>
             </figure>
             <p className="flex justify-between">
