@@ -1,13 +1,31 @@
 import "./Details.css"
 import { GiCrossMark } from 'react-icons/gi'
+import { useContext } from "react"
+import { ShoppingContext } from "../../Context"
 
 const Details = () => {
+    const context = useContext(ShoppingContext)
+    
     return (
-        <aside className="product-detail flex flex-col fixed right-0 border border-black rounded-lg bg-white">
+        <aside className={`${context.isDetailOpen ? 'flex' : 'hidden'} product-detail flex flex-col fixed right-0 border border-black rounded-lg bg-white`}>
             <div className="flex justify-between items-center p-2">
                 <h2 className="font-medium text-xl">Detalles</h2>
-                <div><GiCrossMark /></div>
+                <span className="abolsolute cursor-pointer"
+                      onClick={()=>context.detailClose()}
+                ><GiCrossMark /></span>
             </div>
+            <figure className="px-6">
+                <img 
+                    src={context.product.images[0]} 
+                    alt={context.product.title} 
+                    className="w-full h-auto rounded-lg"
+                />
+                <p className="flex flex-col p-6">
+                    <span className="font-medium text-2xl mb-3">{context.product.title}</span>
+                    <span className="font-medium text-md mb-2">{context.product.description}</span>
+                    <span className="font-medium text-xl">${context.product.price}</span>
+                </p>
+            </figure>
         </aside>
     )
 }
