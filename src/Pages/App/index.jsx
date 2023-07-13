@@ -8,6 +8,7 @@ import Signin from '../Signin'
 import Navbar from '../../Components/Navbar'
 import { ShoppingProvider } from '../../Context'
 import './App.css'
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu'
 
 
 const AppRoutes = () => {
@@ -28,6 +29,7 @@ function App() {
         <BrowserRouter>
           <AppRoutes />
           <Navbar />
+          <CheckoutSideMenu />
         </BrowserRouter>
     </ShoppingProvider>
   )

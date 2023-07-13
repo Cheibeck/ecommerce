@@ -16,16 +16,16 @@ const Details = () => {
             </div>
             <figure className="px-6">
                 <img 
-                    src={context.product.images[0]} 
+                    src={context.product.images} 
                     alt={context.product.title} 
                     className="w-full h-auto rounded-lg"
                 />
-                <p className="flex flex-col p-6">
-                    <span className="font-medium text-2xl mb-3">{context.product.title}</span>
-                    <span className="font-medium text-md mb-2">{context.product.description}</span>
-                    <span className="font-medium text-xl">${context.product.price}</span>
-                </p>
             </figure>
+            <p className="flex flex-col p-6">
+                <span className="font-medium text-2xl mb-3">{context.product.title}</span>
+                <span className="font-medium text-md mb-2">{context.product.description}</span>
+                <span className="font-medium text-xl">${context.product.price}</span>
+            </p>
         </aside>
     )
 }

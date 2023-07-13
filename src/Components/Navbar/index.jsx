@@ -63,7 +63,9 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink to='/' className="flex">
-                        <div><GrCart className="w-5 h-5"/></div>
+                        <div
+                            onClick={()=>context.cartOpen()}
+                        ><GrCart className="w-5 h-5"/></div>
                         <div>{ context.count }</div>
                     </NavLink>
                 </li>
