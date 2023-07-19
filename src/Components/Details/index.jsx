@@ -7,7 +7,7 @@ const Details = () => {
     const context = useContext(ShoppingContext)
     
     return (
-        <aside className={`${context.isDetailOpen ? 'flex' : 'hidden'} product-detail flex flex-col fixed right-0 border border-black rounded-lg bg-white`}>
+        <aside className={`${context.isDetailOpen ? 'flex' : 'hidden'} product-detail flex flex-col fixed border border-black rounded-lg bg-white overflow-y-scroll`}>
             <div className="flex justify-between items-center p-2">
                 <h2 className="font-medium text-xl">Detalles</h2>
                 <span className="abolsolute cursor-pointer"
