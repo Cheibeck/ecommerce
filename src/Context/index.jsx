@@ -1,4 +1,3 @@
-import React from "react";
 import { createContext, useState } from "react";
 
 export const ShoppingContext = createContext()
@@ -6,17 +5,23 @@ export const ShoppingContext = createContext()
 export const ShoppingProvider = ({ children }) => {
     //contador de shopping cart
     const [count, setCount] = useState(0)
+    
     //apertura y cierre de detail
     const [isDetailOpen, setDetailOpen] = useState(false)
     const detailOpen = () => setDetailOpen(true)
     const detailClose = () => setDetailOpen(false)
+    
     //mostrar imagenes en detail
     const [product, setProduct] = useState({})
+    
     //carrito de compras
     const [cart, setCart] = useState([])
     const [isCartOpen, setCartOpen] = useState(false)
     const cartOpen = () => setCartOpen(true)
     const cartClose = () => setCartOpen(false)
+    
+    //shoping cart - order
+    const [order, setOrder] = useState([])
 
     return (
         <ShoppingContext.Provider value={{
@@ -32,7 +37,9 @@ export const ShoppingProvider = ({ children }) => {
             isCartOpen,
             cartOpen,
             cartClose,
-            setCartOpen
+            setCartOpen,
+            order,
+            setOrder
         }}>
         { children }
         </ShoppingContext.Provider>
