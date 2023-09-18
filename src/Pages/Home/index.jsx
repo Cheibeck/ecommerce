@@ -1,28 +1,36 @@
-import { useState, useEffect} from "react"
+import { useContext } from "react"
 import Card from "../../Components/Card"
 import Layout from "../../Components/Layout"
-import React from "react"
 import Details from "../../Components/Details"
 import "./home.css"
+import { ShoppingContext } from "../../Context"
 
 const Home = () => {
-  const [items, setItems] = useState(null)
-
-  // useEffect(()=> {
-  //   fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data))
-  // }, [])
-  
-  useEffect(()=> {
-    fetch("./src/api/DB.json").then(response => response.json()).then(data => setItems(data))
-  }, [])
-
+  const context = useContext(ShoppingContext)
+  const renderView = () => {
+    if(context.searchByTitle?.length > 0){
+      if(context.filteredItems?.length > 0){
+          return(
+            context.filteredItems?.map(item => (
+              <Card key={item.id} data={item}/>
+            )))
+      }else{
+        return(
+          <div>No hay coincidencias</div>
+        )
+      }
+    }else{
+      return(
+          context.items?.map(item => (
+            <Card key={item.id} data={item}/>
+        )))
+    }
+  }
   return (
     <>
       <Layout>
         <div className="layout grid w-full max-w-screen-2xl">
-            {items?.map(item => (
-                <Card key={item.id} data={item}/>
-            ))}
+            {renderView()}
         </div>
         <Details />
       </Layout>

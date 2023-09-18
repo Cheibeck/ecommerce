@@ -48,9 +48,15 @@ const Navbar = () => {
                     </NavLink>
                 </li>
             </ul>
+            <input type="text" 
+              placeholder="buscar" 
+              className="border w-80 p-2 focus:outline-none"
+              onChange={(event)=> context.setSearchByTitle(event.target.value)}
+              />
+            {/* medio */}
             <ul className="flex items-center gap-3">
                 <li className="correo text-black/25">
-                    topo@ojitostiernos.com.ar
+                    mail@ojitostiernos.com.ar
                 </li>
                 <li>
                     <NavLink to='/MyAccount'

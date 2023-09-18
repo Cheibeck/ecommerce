@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ShoppingContext = createContext()
 
@@ -23,6 +23,30 @@ export const ShoppingProvider = ({ children }) => {
     //shoping cart - order
     const [order, setOrder] = useState([])
 
+    // get
+    const [items, setItems] = useState(null)
+    // filtrado de items
+    const [filteredItems, setFilteredItems] = useState(null)
+    //get items by title
+    const [searchByTitle, setSearchByTitle] = useState(null)
+    
+    // useEffect(()=> {
+            //   fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data))
+            // }, [])
+        
+    useEffect(()=> {
+        fetch("./src/api/DB.json").then(response => response.json()).then(data => setItems(data))
+    }, [])
+
+    //funcion filtrados
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+    useEffect(()=> {
+        if (searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+        
+    }, [items, searchByTitle])
+    
     return (
         <ShoppingContext.Provider value={{
             count,
@@ -39,7 +63,12 @@ export const ShoppingProvider = ({ children }) => {
             cartClose,
             setCartOpen,
             order,
-            setOrder
+            setOrder,
+            items,
+            setItems,
+            searchByTitle, 
+            setSearchByTitle,
+            filteredItems
         }}>
         { children }
         </ShoppingContext.Provider>
