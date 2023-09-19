@@ -30,7 +30,7 @@ const CheckoutSideMenu = () => {
         
         context.setCount(context.count = 0)
         context.setCart([])
-        
+        context.setSearchByTitle(null)
     }
 
     return (
