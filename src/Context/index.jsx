@@ -36,7 +36,7 @@ export const ShoppingProvider = ({ children }) => {
             // }, [])
         
     useEffect(()=> {
-        fetch("./src/api/DB.json").then(response => response.json()).then(data => setItems(data))
+        fetch("./DB.json").then(response => response.json()).then(data => setItems(data))
     }, [])
 
     //funcion filtrados
