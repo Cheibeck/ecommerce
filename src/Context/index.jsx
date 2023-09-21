@@ -31,13 +31,13 @@ export const ShoppingProvider = ({ children }) => {
     const [searchByTitle, setSearchByTitle] = useState(null)
     // filtrado por categorias
     const [searchByCategory, setSearchByCategory] = useState(null)
-    // useEffect(()=> {
-            //   fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data))
-            // }, [])
-        
     useEffect(()=> {
-        fetch("./DB.json").then(response => response.json()).then(data => setItems(data))
-    }, [])
+              fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data))
+            }, [])
+        
+    // useEffect(()=> {
+    //     fetch("./DB.json").then(response => response.json()).then(data => setItems(data))
+    // }, [])
 
     //funcion filtrados
     const filteredItemsByTitle = (items, searchByTitle) => {
