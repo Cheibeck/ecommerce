@@ -24,21 +24,19 @@ export const ShoppingProvider = ({ children }) => {
     const [order, setOrder] = useState([])
 
     // get
-    const [items, setItems] = useState(null)
+    const [items, setItems] = useState([])
     // filtrado de items
     const [filteredItems, setFilteredItems] = useState(null)
     //get items by title
     const [searchByTitle, setSearchByTitle] = useState(null)
     // filtrado por categorias
     const [searchByCategory, setSearchByCategory] = useState(null)
+    
+    
     useEffect(()=> {
               fetch('https://api.escuelajs.co/api/v1/products').then(response => response.json()).then(data => setItems(data))
             }, [])
-        
-    // useEffect(()=> {
-    //     fetch("./DB.json").then(response => response.json()).then(data => setItems(data))
-    // }, [])
-
+    
     //funcion filtrados
     const filteredItemsByTitle = (items, searchByTitle) => {
         return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))

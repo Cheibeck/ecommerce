@@ -12,7 +12,7 @@ const Navbar = () => {
             <ul className="flex items-center gap-3">
                 <li className="font-semibold text-lg">
                     <NavLink className={'OJ'} to='/'>
-                        Ojitos Tiernos
+                        Shopi-Ecommerce
                     </NavLink>
                 </li>
                 <li>
@@ -25,30 +25,30 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/Amigurumis'
-                            onClick={()=>context.setSearchByCategory('Amigurumis')}
+                    <NavLink to='/Shoes'
+                            onClick={()=>context.setSearchByCategory('Shoes')}
                             //className={({ isActive }) => isActive ? activeStyle : undefined}
-                            className={'amigurumis'}
+                            className={'Shoes'}
                     >
-                        Amigurumis
+                        shoes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/Plantas'
-                            onClick={()=>context.setSearchByCategory('Plantas')}
+                    <NavLink to='/Electronics'
+                            onClick={()=>context.setSearchByCategory('Electronics')}
                             //className={({ isActive }) => isActive ? activeStyle : undefined}
-                            className={'plantas'}
+                            className={'Electronics'}
                     >
-                        Plantas
+                        Electronics
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/otros'
-                            onClick={()=>context.setSearchByCategory('otros')}
+                    <NavLink to='/Others'
+                            onClick={()=>context.setSearchByCategory('Others')}
                             //className={({ isActive }) => isActive ? activeStyle : undefined}
-                            className={'otros'}
+                            className={'Others'}
                     >
-                        Otros
+                        Others
                     </NavLink>
                 </li>
             </ul>
@@ -60,7 +60,7 @@ const Navbar = () => {
             {/* medio */}
             <ul className="flex items-center gap-3">
                 <li className="correo text-black/25">
-                    mail@ojitostiernos.com.ar
+                    mail@ecommerce.com
                 </li>
                 <li>
                     <NavLink to='/MyAccount'
